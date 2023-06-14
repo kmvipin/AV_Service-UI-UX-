@@ -1,0 +1,198 @@
+.profileform {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin: auto;
+    font-size: 18px;
+  }
+.profileform  label {
+  flex-basis: 30%;
+  text-align: left;
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 400;
+  color: #000;
+  font-size: 16px;
+  max-inline-size: none;
+  }
+ .profileform input {
+    flex-basis: 65%;
+    /* text-align: right; */
+    font-size: 16px;
+  }
+  
+  
+ .profileform input[type="text"]::placeholder {
+    text-align: left;
+    padding-left: 10px; /* Optional: add some left padding */
+  }
+  
+ .profileform input[type="tel"]::placeholder {
+    text-align: left;
+    padding-left: 10px; /* Optional: add some left padding */
+  }
+  
+  
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
+  }
+  .profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .profilePicture {
+    position: sticky;
+    margin-block-end: 2rem;
+    margin-inline-start: 87%;
+  }
+  
+  .pictureContainer {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .pictureContainer:hover {
+    transform: scale(1.05);
+  }
+  
+  .pictureContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .defaultPicture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #555;
+    font-size: 60px;
+  }
+  
+  .uploadLabel {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .pictureContainer:hover .uploadLabel {
+    display: block;
+    opacity: 1;
+  }
+  
+  .uploadLabel i {
+    margin-right: 5px;
+  }
+  
+  .profileName input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Optional: Font Awesome icons */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+  
+  .profileForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  
+  .profileForm input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .profileForm button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+  
+ .updateButton {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #4CAF50;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .backButton {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #4CAF50;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #ccc;
+  }
+  
+  .backButton:hover {
+    background-color: #ddd;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    display: inline-block;
+    margin-right: 10px;
+
+    
+  }
+  
+  .txt{
+    border-radius: 30px;
+  }
+
+  .profileCover{
+    background: linear-gradient(rgb(57 65 42 / 0%), rgb(0 0 0 / 42%)), url(https://media.istockphoto.com/id/1205881259/photo/office-table-top-view.jpg?s=170667a&w=0&k=20&c=jBDJ7vDy_BqVnwx-NuI04r5FnxuV1IsLdP536ADGmBU=);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-orientation: none;
+  }

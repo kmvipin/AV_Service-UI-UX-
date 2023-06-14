@@ -1,0 +1,51 @@
+
+.contain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  background-color: black;
+  height: 6rem;
+  padding: 10px 10px;
+  width: 100%;
+
+}
+
+.contain .logo {
+  display: -webkit-inline-box;
+  font-size: 3rem;
+  color: var(--white);
+  font-weight: 700;
+
+}
+
+.contain .logo span {
+  font-weight: normal;
+}
+
+.contain .navbar a {
+  font-size: 1.7rem;
+  color: var(--white);
+  margin-left: 50rem;
+}
+
+.contain .menu {
+  font-size: 2rem;
+  color: var(--white);
+  display: none;
+}
+
+.contain.active {
+  background: var(--white);
+  padding: 3rem 9%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.contain.active .logo,
+.contain.active .navbar a,
+.contain.active .menu {
+  color: var(--black);
+}

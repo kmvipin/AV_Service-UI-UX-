@@ -1,0 +1,216 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f1f1f1;
+}
+  
+  .serheader {
+ 
+      background-color: #333;
+      color: white;
+      padding-top: 10.5rem;
+      display: flex;
+  
+  }
+
+  .serheader h1 button{
+    margin-bottom: 20px;
+  }
+  
+  main {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 45%;
+    margin-bottom: 2rem;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+  }
+  
+  .card p {
+    margin: 0.5rem 0;
+  }
+  
+  .card a {
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.services {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service {
+  width: 250px;
+  margin: 20px;
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  height: 45rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-image {
+  width: 80%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.service:hover .service-image {
+  transform: scale(1.05);
+}
+
+.service-name {
+  margin-top: 15px;
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.service:hover .service-name {
+  color: #000000;
+}
+
+.service button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #777;
+  margin-block-start: 40px;
+}
+
+.cost {
+  font-weight: bold;
+  color: #555;
+  font-size: 18px;
+  padding-right: 30px;
+  position: absolute;
+  bottom: 80px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .service {
+    width: 100%;
+  }
+
+  .services {
+    justify-content: flex-start;
+  }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+.serbtn{
+
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: #2960cd;
+padding: 10px 30px;
+border: solid #0c42f2 2px;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 50px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+margin-bottom: 2rem;
+margin-top: -2rem;
+width: 15%;
+    margin-left: 82%;
+} 
+
+.serbtn:hover{
+
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #fff;
+color: #0007cc;
+border: solid 2px #0030cc;
+}
+
+.serbtn img{
+  
+  width:25px; margin-left:3px; margin-right:3px; flex-direction: row;
+}
+
+.sellerservice{
+  padding: 100px;
+
+}
+.remove-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4541c7;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  position: absolute;
+    cursor: pointer;
+    bottom: 20px;
+    margin-left: -5.8rem;
+    width: 50%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.remove-button:hover {
+  background-color: #2722c1;
+}

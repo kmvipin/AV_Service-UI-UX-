@@ -1,0 +1,119 @@
+.add-service-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0; 
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.addform {
+  display: flex;
+  position: fixed;
+  max-width: 400px;
+  max-height: 40rem;
+  padding: 30px;
+  border-radius: 6px;
+  height: 540px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  scroll-snap-type: y mandatory;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 23%;
+  margin-left: 50%;
+  transform: translate(-50%, -45%);
+  flex-direction: column;
+  background-image: linear-gradient(180deg, cyan, white);
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  .addform label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .addform input,
+  textarea, select{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .addform button[type="submit"] {
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  #image-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .image-preview-item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-preview-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .image-preview-item button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+
+    
+
+.addcontainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    column-gap: 30px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.addheading{
+  text-align: center;
+  margin-bottom: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

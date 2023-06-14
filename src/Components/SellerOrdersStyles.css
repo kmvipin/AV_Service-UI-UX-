@@ -1,0 +1,61 @@
+
+  
+.my-order-heading{
+  margin-top: 6%;
+  font-size: xx-large;
+}
+
+.table-container{
+ margin-top: 20px;
+ padding :20px;
+  
+}
+
+/*table order details handler*/
+#order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+#order-table th, #order-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 10px;
+}
+
+#order-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+#order-table td {
+  text-align: center;
+}
+
+#order-table td.status {
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+#order-table td.status.pending {
+  background-color: #ffc107;
+}
+
+#order-table td.status.delivered {
+  background-color: #28a745;
+}
+
+#order-table td.status.cancelled {
+  background-color: #dc3545;
+}
+
+#order-table td.action button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
