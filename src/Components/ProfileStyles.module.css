@@ -190,9 +190,36 @@
   }
 
   .profileCover{
-    background: linear-gradient(rgb(57 65 42 / 0%), rgb(0 0 0 / 42%)), url(https://media.istockphoto.com/id/1205881259/photo/office-table-top-view.jpg?s=170667a&w=0&k=20&c=jBDJ7vDy_BqVnwx-NuI04r5FnxuV1IsLdP536ADGmBU=);
+    background: linear-gradient(rgb(57 65 42 / 0%), rgb(0 0 0 / 42%)), url(https://img.freepik.com/premium-photo/blurred-transparent-blue-colored-clear-calm-water-surface-texture-with-splashes-bubbles-trendy-abstract-nature-background-water-waves-sunlight-water-background_532332-1377.jpg?w=2000);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     image-orientation: none;
   }
+
+  .dropdownContent {
+    position: absolute;
+    background-color: #f1f1f1;
+    margin-left: 8px;
+    min-width: 160px;
+    max-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    -webkit-text-stroke: medium;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdownContent a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}

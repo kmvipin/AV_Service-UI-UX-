@@ -1,5 +1,9 @@
 import { useState } from "react";
+import {ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import React from 'react'
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
     const [name, setName] = useState('');
@@ -7,20 +11,6 @@ const Contact = () => {
     const [message, setMessage] = useState('');
     const handleSubmit = (event) => {
         const token = sessionStorage.getItem('token');
-        fetch('http://localhost:8080/api/customer/getCustomerOrders', {
-                method : 'GET',
-                headers : {
-                    'Authorization' : 'Bearer '+token,
-                    'Accept' : 'application/json',
-                    'Content-type' : 'application/json'
-                }
-            })
-            .then(response =>{
-                return response.json();
-            })
-            .then(data =>{
-                console.log(data);
-            })
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
     
@@ -30,23 +20,27 @@ const Contact = () => {
           "mobileNum": phone,
           "name": name,
         }
-        fetch('http://localhost:8080/public/api/contact/saveMsg', {
-          method: 'POST',
-          headers: myHeaders,
-          body: JSON.stringify(formData),
+
+        axios.post('http://localhost:8080/public/api/contact/saveMsg', formData, {
+        headers: myHeaders,
+      })
+        .then((response) => {
+          const data = response.data;
+          if (data.success) {
+            toast.success("Message Sent SuccessFully");
+            setName('');
+            setMessage('');
+            setPhone('');
+          } else {
+            toast.error("Something went wrong");
+            throw new Error(JSON.stringify(data));
+          }
         })
-          .then((response) => response.json())
-          .then((data) => {
-            if(data.success){
-              window.location.href = '/';
-            }else{
-              throw new Error(JSON.stringify(data));
-            }
-          })
-          .catch((error) => console.error(error));
+        .catch((error) => console.error(error));
       }
   return (
     <section className="contact" id="contact">
+    <ToastContainer/>
         <h1 className="heading">contact us</h1>
         <div className="box-container">
           <div className="box">
@@ -61,12 +55,7 @@ const Contact = () => {
           </div>
 
           <script src="ContactForm.js"></script>
-          <form
-            action="mailto:sighaditya@gmail.com"
-            method="post"
-            enctype="text/plain"
-            onSubmit={handleSubmit}
-          >
+          <form>
             <div className="inputBox">
               <input id = "name" type="text" placeholder="your name" 
               name="name" value={name}
@@ -84,7 +73,7 @@ const Contact = () => {
               value={message}
               onChange={(event) => setMessage(event.target.value)}
             ></textarea>
-            <input type="submit" value="send message" className="btn" />
+            <Link onClick={handleSubmit} className="btn">Send Message</Link>
           </form>
         </div>
       </section>

@@ -10,7 +10,7 @@ const HomeComponent = () => {
   return (
   <div>
     <NavBar />
-    <Home />
+    <Home/>
     <About />
     <OurService />
     <Contact />

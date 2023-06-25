@@ -1,8 +1,10 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginStyles.css";
 import { Link } from "react-router-dom";
 import Login from "./Login";
+import axios from "axios";
+import base_url from "../api/Service";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,7 +16,7 @@ const Signup = () => {
   const [checkedSeller, setCheckedSeller] = useState(false);
   const [checkedCustomer, setCheckedCustomer] = useState(false);
   const [errorMessage, displaySignUpErrorMessage] = useState("");
-  const [showForm,setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(true);
   const [loginForm, setLoginForm] = useState(false);
 
   const navigate = useNavigate();
@@ -36,9 +38,7 @@ const Signup = () => {
             pwd: firstPassword,
           },
         };
-        url = "http://localhost:8080/public/api/newCustomer";
-
-        console.log(body, "d");
+        url = `${base_url}http://localhost:8080/public/api/newCustomer`;
       } else if (checkedSeller) {
         body = {
           person: {
@@ -51,51 +51,57 @@ const Signup = () => {
             pwd: firstPassword,
           },
         };
-        url = "http://localhost:8080/public/api/newSeller";
-        console.log(body, "d");
+        url = `${base_url}http://localhost:8080/public/api/newSeller`;
       } else {
         console.log("please select the category");
       }
-
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      };
-
-      fetch(url, options)
-        .then((response) => {
-          return response.json();
+      axios
+        .post(url, body, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
         })
-        .then((result) => {
+        .then((response) => {
+          const result = response.data;
           if (result.success) {
             sessionStorage.setItem("token", result.token);
             setShowForm(false);
             setLoginForm(true);
             return;
-            //redirect to login page
+            // redirect to login page
           } else {
-            //redirect to signUp or refresh
+            // redirect to signUp or refresh
           }
         })
         .catch((error) => console.error(error));
     } else {
-      displaySignUpErrorMessage('Create Password and Confirm Password must be same');
+      displaySignUpErrorMessage(
+        "Create Password and Confirm Password must be same"
+      );
       return;
     }
   };
   return (
     <>
-    {loginForm && <Login/>}
-    <div className="signup-modal" style={{ display: showForm ? "block" : "none" }}>
-    <div className="form login">
-    <span className="close-button" onClick={()=>{setShowForm(false);}}>&times;</span>
-    <div className="mainsignup">
-        {/* <div className="form signup"> */}
-          <header className="signup-login-header">Signup</header>
-            <br/>
+      {loginForm && <Login />}
+      <div
+        className="signup-modal"
+        style={{ display: showForm ? "block" : "none" }}
+      >
+        <div className="form login">
+          <span
+            className="close-button"
+            onClick={() => {
+              setShowForm(false);
+            }}
+          >
+            &times;
+          </span>
+          <div className="mainsignup">
+            {/* <div className="form signup"> */}
+            <header className="signup-login-header">Signup</header>
+            <br />
             {errorMessage && <div id="error-message"> {errorMessage} </div>}
             <form onSubmit={SignupHandler}>
               <div className="field input-field">
@@ -195,7 +201,6 @@ const Signup = () => {
               </div>
               <h2 className="h2tag">Are you a CUSTOMER or a SELLER</h2>
               <fieldset className="radioLogin">
-               
                 <label>
                   <input
                     id="customer"
@@ -228,15 +233,21 @@ const Signup = () => {
             <div className="form-link">
               <span>
                 Already have an account?{" "}
-                <Link onClick={()=>{setShowForm(false); setLoginForm(true);}} className="link login-link">
+                <Link
+                  onClick={() => {
+                    setShowForm(false);
+                    setLoginForm(true);
+                  }}
+                  className="link login-link"
+                >
                   Login
                 </Link>
               </span>
             </div>
-        {/* </div> */}
-    </div>
-    </div>
-    </div>
+            {/* </div> */}
+          </div>
+        </div>
+      </div>
     </>
   );
 };

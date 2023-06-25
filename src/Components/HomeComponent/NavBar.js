@@ -1,11 +1,12 @@
 import React,{useEffect, useState} from 'react';
 import Login from '../Login';
+import axios from 'axios';
+import base_url from '../../api/Service';
 import {
     // useNavigate,
     Link, json,
   } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import Signup from '../Signup';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -13,28 +14,23 @@ const NavBar = () => {
   const token = sessionStorage.getItem('token');
   const role = sessionStorage.getItem('role');
   const logoutHandler = () =>{
-    fetch('http://localhost:8080/api/person/logout',{
-      method : 'POST',
-      headers :{
-        'Content-type' : 'application/json',
-        'Accept' : 'application/json',
-        'Authorization' : 'Bearer '+token
+    axios.post(`${base_url}/api/person/logout`, {}, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    },
+    withCredentials : true,
+  })
+    .then(response => {
+      if (response.status === 201 || response.status === 200) {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('role');
+        return navigate('/');
       }
     })
-    .then(
-      res =>{
-        console.log(res.status,"dfdf")
-        if(res.status == 201 || res.status == 200 )
-        {
-          sessionStorage.removeItem('token');
-          sessionStorage.removeItem('role');
+    .catch(error => console.error(error));
 
-          return navigate('/');
-        }
-      }
-      
-    )
-    .catch(error=>console.error(error))
     
 }
 const handleShowNavFormChange = (value) => {
@@ -56,6 +52,7 @@ const handleShowNavFormChange = (value) => {
       document.querySelector('.header').classList.remove('active');
     }
   };
+
   return (
     <div>
     <header className="header">
@@ -65,9 +62,9 @@ const handleShowNavFormChange = (value) => {
         <a className="menu fas fa-bars"></a>
         <nav className="navbar bg-color-dark">
         <Link to='/' onClick={()=>setShowNavForm(false)}>home</Link>
-          <a href="#about">about</a>
+        <Link to={'/'}>about</Link>
           {role==="SELLER"?null: <Link to="/services">services</Link>}
-          <a href="#contact">contact</a>
+          <Link to={'/'}>contact</Link>
           {token?<><Link to="/profile" className="open-login" id="profile">
             profile
           </Link> 

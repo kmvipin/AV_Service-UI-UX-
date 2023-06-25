@@ -10,9 +10,8 @@ import Carpenter from "../Assets/carpenter.png";
 import Mechanic from "../Assets/mechanics.png";
 import Refrigerator from "../Assets/refrigator.png";
 import { Link } from "react-router-dom";
-import NavBar from "./HomeComponent/NavBar"
+import NavBar from "./HomeComponent/NavBar";
 import "./error.css";
-import AddServices from "./AddServices";
 
 const Service = () => {
   const data = [
@@ -21,9 +20,9 @@ const Service = () => {
       name: "Electrician",
       src: Electrician,
       description:
-        "Installing or replacing electrical outlets, switches, or fixtures"+
-        "Upgrading or installing electrical panels or circuit breakers"+
-        "Troubleshooting and repairing electrical problems or faults"+
+        "Installing or replacing electrical outlets, switches, or fixtures" +
+        "Upgrading or installing electrical panels or circuit breakers" +
+        "Troubleshooting and repairing electrical problems or faults" +
         "Installing or replacing wiring for appliances or lighting",
     },
     {
@@ -31,7 +30,7 @@ const Service = () => {
       name: "Plumber",
       src: Plumber,
       description:
-        "Got a leaky faucet or clogged drain? Our expert plumbers are just a phone call away!"+
+        "Got a leaky faucet or clogged drain? Our expert plumbers are just a phone call away!" +
         "From routine plumbing maintenance to emergency repairs, our team has the knowledge and experience to handle any job.",
     },
     {
@@ -39,8 +38,8 @@ const Service = () => {
       name: "Mechanic",
       src: Mechanic,
       description:
-      "Trust our experienced mechanics to get you back on the road safely."+
-      "Our skilled mechanics have the knowledge and tools to diagnose and repair any automotive issue, from routine tune-ups to major engine repairs.",
+        "Trust our experienced mechanics to get you back on the road safely." +
+        "Our skilled mechanics have the knowledge and tools to diagnose and repair any automotive issue, from routine tune-ups to major engine repairs.",
     },
     {
       id: "LAPTOP",
@@ -88,9 +87,9 @@ const Service = () => {
 
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <div className="wrapper">
-      <h1 className="service-heading">Select Your Service category</h1>
+        <h1 className="service-heading">Select Your Service category</h1>
         {data.map((obj) => (
           <div className="boxx">
             <img src={obj.src} id={obj.name} alt=""></img>
