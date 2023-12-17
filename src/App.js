@@ -1,7 +1,7 @@
 import React from "react";
 
 import ServiceDetails from "./Components/ServiceDetails";
-// import Booking from "./Components/Booking";
+// import Booking from "./Components/Booking"
 import Service from "./Components/Service";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
